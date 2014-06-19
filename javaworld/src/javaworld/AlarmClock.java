@@ -35,4 +35,6 @@ public class AlarmClock {
 		setAlarmHour(hour);
 		setAlarmMinute(minute);
 	}
+	
+	
 }
