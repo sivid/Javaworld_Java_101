@@ -1,0 +1,26 @@
+// wait pseudo code
+
+// Condition variable initialized to false to indicate condition has not occurred.
+boolean conditionVar = false;
+
+
+// Object whose lock threads synchronize on.
+Object lockObject = new Object();
+
+
+// Thread A waiting for condition to occur...
+synchronized(lockObject){
+	while(!conditionVar){
+		try{
+			lockObject.wait();
+		}catch(InterruptedException e){
+		}
+	}
+}
+
+
+// Thread B notifying Thread A that condition has occured...
+synchronized(lockObject){
+	conditionVar = true;
+	lockObject.notify();
+}
